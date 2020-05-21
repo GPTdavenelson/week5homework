@@ -53,8 +53,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
 
+    window.onload = load()  
+    
       $("#saveButton").click(function(){
-        $("#text").each(function(){
+        $("#9AMtext").each(function(){
           var id= $(this).attr('id');
           var value = $(this).val();
           localStorage.setItem(id,value);
@@ -63,7 +65,7 @@
       });
 
       function load() {
-      $("#text").each(function(){    
+      $("#9AMtext").each(function(){    
         var id = $(this).attr('id');
         var value = localStorage.getItem(id);
 
