@@ -1,85 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Work Day Scheduler</title>
-  </head>
 
-  <body>
-    
-    <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
-    </header>
-    
-    <div class="container">
-      <div class="row">
-        
-        <div class="col-10">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="basic-addon1">9AM</span>
-            </div>
-            <input id="9AMtext" type="text" class="form-control" placeholder="Task" aria-label="Task" aria-describedby="basic-addon1">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Work Day Scheduler</title>
+</head>
+
+<body>
+
+  <header class="jumbotron">
+    <h1 class="display-3">Work Day Scheduler</h1>
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <p id="currentDay" class="lead"></p>
+  </header>
+
+  <div class="container">
+    <div class="element col-10"></div>
+    <div class="row">
+
+
+      <!-- <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">9AM</span>
           </div>
-        </div>
-        
-        <div class="col-2">
-          <button id="saveButton" class="btn btn-primary" type="submit">Save</button>
+          <input id="9AMtext" type="text" class="form-control" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
         </div>
       </div>
 
+      <div class="col-2">
+        <button id="saveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div> -->
+
       <!-- Timeblocks go here -->
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      <script>
 
-    window.onload = load()  
-    
-      $("#saveButton").click(function(){
-        $("#9AMtext").each(function(){
-          var id= $(this).attr('id');
-          var value = $(this).val();
-          localStorage.setItem(id,value);
-          console.log(id,value)
+        window.addEventListener('load', (event) => {
+
+          var day = ["9", "10", "11", "12", "1", "2", "3", "4", "5"]
+          var newDay = [];
+          var newHTML = [];
+
+          for (i = 0; i < day.length; i++) {
+            if (day[i] === "9" || day[i] === "10" || day[i] === "11") {
+              var time = (day[i] + ":00AM");
+              newDay.push(time);
+            } else {
+              var time = (day[i] + ":00PM");
+              newDay.push(time);
+            }
+          }
+          console.log(newDay);
+
+
+          for (var i = 0; i < newDay.length; i++) {
+
+            var timeRow =
+              `<div class="row">
+                  <div class="col-10">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">${newDay[i]}</span>
+                    </div>
+                    <input id="${newDay[i]}" type="text" class="form-control" placeholder="Task" aria-label="Task"
+                      aria-describedby="basic-addon1">
+                  </div>
+                </div>
+
+                  <div class="col-2">
+                    <button id="saveButton" class="btn btn-primary" type="submit">Save</button>
+                  </div>
+                </div>
+            `;
+
+            newHTML.push(timeRow);
+
+          }
+
+          $(".element").html(newHTML.join(""));
+
         });
-      });
 
-      function load() {
-      $("#9AMtext").each(function(){    
-        var id = $(this).attr('id');
-        var value = localStorage.getItem(id);
+        $(document).on("click", "#saveButton", function () {
+          console.log("test")
+          $(`${newDay[i]}`).each(function () {
+            var id = $(this).attr('id');
+            var value = $(this).val();
+            localStorage.setItem(id, value);
+            console.log(this)
+          });
+        });
 
-        $(this).val(value);
-
-        }); 
-      };
+        window.onload = load()
 
 
+        function load() {
+          $(`"#${newDay}"`).each(function () {
+            var id = $(this).attr('id');
+            var value = localStorage.getItem(id);
 
-    </script>
-    
-    
-    <!--
+            $(this).val(value);
+
+          });
+        };
+
+
+
+      </script>
+
+
+      <!--
     //Create containers
     //Create text box
     //Create save button that saves to local storage
@@ -87,5 +129,6 @@
     //Create a function that declares the time
     //Create a switch statment that changes color of container based on time
     -->
-  </body>
+</body>
+
 </html>
