@@ -22,106 +22,264 @@
   </header>
 
   <div class="container">
-    <div class="element col-10"></div>
     <div class="row">
 
-
-      <!-- <div class="col-10">
+      <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">9AM</span>
           </div>
-          <input id="9AMtext" type="text" class="form-control" placeholder="Task" aria-label="Task"
+          <input id="9AMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
         </div>
       </div>
 
       <div class="col-2">
-        <button id="saveButton" class="btn btn-primary" type="submit">Save</button>
+        <button id="9AMsaveButton" class="btn btn-primary saveButton" type="submit">Save</button>
       </div>
-    </div> -->
+    </div>
 
-      <!-- Timeblocks go here -->
+    <div class="row">
 
-      <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-      <script>
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">10AM</span>
+          </div>
+          <input id="10AMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
 
-        window.addEventListener('load', (event) => {
+      <div class="col-2">
+        <button id="10AMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
 
-          var day = ["9", "10", "11", "12", "1", "2", "3", "4", "5"]
-          var newDay = [];
-          var newHTML = [];
+    <div class="row">
 
-          for (i = 0; i < day.length; i++) {
-            if (day[i] === "9" || day[i] === "10" || day[i] === "11") {
-              var time = (day[i] + ":00AM");
-              newDay.push(time);
-            } else {
-              var time = (day[i] + ":00PM");
-              newDay.push(time);
-            }
-          }
-          console.log(newDay);
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">11AM</span>
+          </div>
+          <input id="11AMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
 
+      <div class="col-2">
+        <button id="11AMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
 
-          for (var i = 0; i < newDay.length; i++) {
+    <div class="row">
 
-            var timeRow =
-              `<div class="row">
-                  <div class="col-10">
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">${newDay[i]}</span>
-                    </div>
-                    <input id="${newDay[i]}" type="text" class="form-control" placeholder="Task" aria-label="Task"
-                      aria-describedby="basic-addon1">
-                  </div>
-                </div>
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">12PM</span>
+          </div>
+          <input id="12PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
 
-                  <div class="col-2">
-                    <button id="saveButton" class="btn btn-primary" type="submit">Save</button>
-                  </div>
-                </div>
-            `;
+      <div class="col-2">
+        <button id="12PMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
 
-            newHTML.push(timeRow);
+    <div class="row">
 
-          }
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">1PM</span>
+          </div>
+          <input id="1PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
 
-          $(".element").html(newHTML.join(""));
+      <div class="col-2">
+        <button id="1PMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">2PM</span>
+          </div>
+          <input id="2PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+
+      <div class="col-2">
+        <button id="2PMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">3PM</span>
+          </div>
+          <input id="3PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+
+      <div class="col-2">
+        <button id="3PMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">4PM</span>
+          </div>
+          <input id="4PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+
+      <div class="col-2">
+        <button id="4PMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-10">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">5PM</span>
+          </div>
+          <input id="5PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+
+      <div class="col-2">
+        <button id="5PMsaveButton" class="btn btn-primary" type="submit">Save</button>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+
+      window.onload = load()
+
+      $("#9AMsaveButton").click(function () {
+        $("#9AMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#10AMsaveButton").click(function () {
+        $("#10AMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#11AMsaveButton").click(function () {
+        $("#11AMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#12PMsaveButton").click(function () {
+        $("#12PMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#1PMsaveButton").click(function () {
+        $("#1PMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#2PMsaveButton").click(function () {
+        $("#2PMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#3PMsaveButton").click(function () {
+        $("#3PMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#4PMsaveButton").click(function () {
+        $("#4PMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      $("#5PMsaveButton").click(function () {
+        $("#5PMtext").each(function () {
+          var id = $(this).attr('id');
+          var value = $(this).val();
+          localStorage.setItem(id, value);
+          console.log(id, value)
+        });
+      });
+
+      function load() {
+        $(".input").each(function () {
+          var id = $(this).attr('id');
+          var value = localStorage.getItem(id);
+
+          $(this).val(value);
 
         });
-
-        $(document).on("click", "#saveButton", function () {
-          console.log("test")
-          $(`${newDay[i]}`).each(function () {
-            var id = $(this).attr('id');
-            var value = $(this).val();
-            localStorage.setItem(id, value);
-            console.log(this)
-          });
-        });
-
-        window.onload = load()
-
-
-        function load() {
-          $(`"#${newDay}"`).each(function () {
-            var id = $(this).attr('id');
-            var value = localStorage.getItem(id);
-
-            $(this).val(value);
-
-          });
-        };
+      };
 
 
 
-      </script>
 
 
-      <!--
+    </script>
+
+
+    <!--
     //Create containers
     //Create text box
     //Create save button that saves to local storage
@@ -130,5 +288,3 @@
     //Create a switch statment that changes color of container based on time
     -->
 </body>
-
-</html>
