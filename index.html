@@ -27,7 +27,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">9AM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="9">9AM</span>
           </div>
           <input id="9AMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -44,7 +44,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">10AM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="10">10AM</span>
           </div>
           <input id="10AMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -61,7 +61,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">11AM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="11">11AM</span>
           </div>
           <input id="11AMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -78,7 +78,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">12PM</span>
+            <span class="input-group-text " id="basic-addon1" data-value="12">12PM</span>
           </div>
           <input id="12PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -95,7 +95,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">1PM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="13">1PM</span>
           </div>
           <input id="1PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -112,7 +112,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">2PM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="14">2PM</span>
           </div>
           <input id="2PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -129,7 +129,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">3PM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="15">3PM</span>
           </div>
           <input id="3PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -146,7 +146,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">4PM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="16">4PM</span>
           </div>
           <input id="4PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -163,7 +163,7 @@
       <div class="col-10">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">5PM</span>
+            <span class="input-group-text" id="basic-addon1" data-value="17">5PM</span>
           </div>
           <input id="5PMtext" type="text" class="form-control input" placeholder="Task" aria-label="Task"
             aria-describedby="basic-addon1">
@@ -179,7 +179,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
 
-      window.onload = load()
+      window.onload = load();
+
+      var currentTime = moment().format("HH");
+      var currentTimeNum = +currentTime;
+      var classData = $(".input-group-text").data()
+
+      function timeCheck() {
+        $(".input-group-text").each(function () {
+          var value = parseInt(Object.values($(this).data()));
+          console.log(value)
+          if (value > currentTimeNum) {
+            $(this).css("background-color", "lime")
+          } else if (value < currentTimeNum) {
+            $(this).css("background-color", "pink")
+          } else if (value === currentTimeNum) {
+            $(this).css("background-color", "cyan")
+          }
+        });
+      };
+
+      timeCheck()
 
       $("#9AMsaveButton").click(function () {
         $("#9AMtext").each(function () {
@@ -274,8 +294,6 @@
 
 
 
-
-
     </script>
 
 
@@ -288,3 +306,5 @@
     //Create a switch statment that changes color of container based on time
     -->
 </body>
+
+</html>
